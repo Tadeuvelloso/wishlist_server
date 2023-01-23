@@ -1,11 +1,15 @@
 import express from "express";
-import { getAllMovies } from "./controllers/allMovies.js";
+import movieroute from "./routes/movies.rote.js";
 
 const server = express();
 
+server.use(express.json());
+server.use(movieroute);
 
-server.get("/movies", getAllMovies);
+server.get("/vida", (req, res) => {
+    res.send("alou")
+})
 
-server.listen(4000, () => {
-    console.log("executando...")
+server.listen(5000, () => {
+    console.log("executando....")
 })

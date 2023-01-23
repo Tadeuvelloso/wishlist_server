@@ -1,10 +1,13 @@
 import express from "express";
-import { getAllMovies } from "./controllers/allMovies.js";
+import movieroute from "./routes/movies.rote.js";
+import cors from "cors";
 var server = express();
-server.get("/health", function (req, res) {
-    res.send("ok");
+server.use(cors);
+server.use(express.json());
+server.use(movieroute);
+server.get("/heath", function (req, res) {
+    res.send("alou");
 });
-server.get("/movies", getAllMovies);
-server.listen(4000, function () {
-    console.log("executando...");
+server.listen(5000, function () {
+    console.log("executando.....");
 });
